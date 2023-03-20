@@ -2,4 +2,29 @@
 
 body {
   font-family: "Poppins", sans-serif;
+
+  .Products {
+    padding: 50px 0;
+
+    .col-3 {
+
+        h5 {
+            font-size: 20px;
+            margin-top: 25px !important;
+            margin-bottom: 12px !important;
+        }
+        
+      .inputWrap {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+
+        label {
+          margin-left: 10px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }
