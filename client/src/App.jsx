@@ -4,28 +4,37 @@ import {
   createHashRouter,
   RouterProvider,
 } from "react-router-dom";
-import { Main } from "./pages";
-import { Navbar } from "./components";
+import { Main, PageNotFound, Product, Products } from "./pages";
+import { Navbar, NavigateLayout } from "./components";
 
 const App = () => {
   const router = createHashRouter([
     {
       path: "/",
-      element: <Main />,
-    },
-    {
-      path: "/product",
-      element: <span>Product ID</span>,
-    },
-    {
-      path: "*",
-      element: <span>Page not found</span>,
+      element: <NavigateLayout />,
+      children: [
+        {
+          path: "/",
+          element: <Main />,
+        },
+        {
+          path: "products",
+          element: <Products />,
+        },
+        {
+          path: "product/:id",
+          element: <Product />,
+        },
+        {
+          path: "*",
+          element: <PageNotFound />,
+        },
+      ],
     },
   ]);
 
   return (
     <>
-      {/* <Navbar /> */}
       <RouterProvider router={router}>
         <Navbar />
       </RouterProvider>
